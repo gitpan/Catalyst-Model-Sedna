@@ -2,7 +2,7 @@ package Catalyst::Model::Sedna;
 use Sedna;
 use Moose;
 
-our $VERSION = 0.001;
+our $VERSION = 0.002;
 
 extends 'Catalyst::Model';
 has 'conn' => (is => 'ro',
@@ -33,12 +33,7 @@ sub BUILDARGS {
 sub get_item {
     my $self = shift;
     if ($self->conn->next) {
-        my ($buf,$ret);
-        $buf = ' 'x1024;
-        while (my $read = $self->conn->getData($buf, 1024)) {
-            $ret .= substr($buf,0,$read);
-        }
-        return $ret;
+        return $self->conn->getItem;
     } else {
         return;
     }
