@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Catalyst-Model-Sedna
-version:            0.003
+version:            0.004
 abstract:           Access the Sedna XML Database
 author:
     - Daniel Ruoso <daniel@ruoso.com>
@@ -11,8 +11,9 @@ configure_requires:
 build_requires:
     ExtUtils::MakeMaker:  0
 requires:
-    Moose:  0.9
-    Sedna:  0.002
+    Catalyst::Runtime:  5.8
+    Moose:              0.9
+    Sedna:              0.002
 no_index:
     directory:
         - t
